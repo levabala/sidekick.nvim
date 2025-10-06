@@ -41,6 +41,12 @@ M.context = {
   diagnostics_all = function(ctx)
     return Diag.get(ctx, { all = true })
   end,
+  diagnostics_error = function(ctx)
+    return Diag.get(ctx, { severity = vim.diagnostic.severity.ERROR })
+  end,
+  diagnostics_error_all = function(ctx)
+    return Diag.get(ctx, { all = true, severity = vim.diagnostic.severity.ERROR })
+  end,
   selection = function(ctx)
     return require("sidekick.cli.context.selection").get(ctx)
   end,

@@ -116,8 +116,10 @@ local defaults = {
     ---@type table<string, sidekick.Prompt|string|fun(ctx:sidekick.context.ctx):(string?)>
     prompts = {
       changes         = "Can you review my changes?",
-      diagnostics     = "Can you help me fix the diagnostics in {file}?\n{diagnostics}",
-      diagnostics_all = "Can you help me fix these diagnostics?\n{diagnostics_all}",
+      diagnostics           = "Can you help me fix the diagnostics in {file}?\n{diagnostics}",
+      diagnostics_all       = "Can you help me fix these diagnostics?\n{diagnostics_all}",
+      diagnostics_error     = "Can you help me fix the errors in {file}?\n{diagnostics_error}",
+      diagnostics_error_all = "Can you help me fix these errors?\n{diagnostics_error_all}",
       document        = "Add documentation to {position}",
       explain         = "Explain {this}",
       fix             = "Can you fix {this}?",
