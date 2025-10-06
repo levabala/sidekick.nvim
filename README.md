@@ -339,10 +339,12 @@ local defaults = {
     -- stylua: ignore
     ---@type table<string, sidekick.Prompt|string|fun(ctx:sidekick.context.ctx):(string?)>
     prompts = {
-      changes         = "Can you review my changes?",
-      diagnostics     = "Can you help me fix the diagnostics in {file}?\n{diagnostics}",
-      diagnostics_all = "Can you help me fix these diagnostics?\n{diagnostics_all}",
-      document        = "Add documentation to {position}",
+      changes               = "Can you review my changes?",
+      diagnostics           = "Can you help me fix the diagnostics in {file}?\n{diagnostics}",
+      diagnostics_all       = "Can you help me fix these diagnostics?\n{diagnostics_all}",
+      diagnostics_error     = "Can you help me fix the errors in {file}?\n{diagnostics_error}",
+      diagnostics_error_all = "Can you help me fix these errors?\n{diagnostics_error_all}",
+      document              = "Add documentation to {position}",
       explain         = "Explain {this}",
       fix             = "Can you fix {this}?",
       optimize        = "How can {this} be optimized?",
@@ -441,6 +443,8 @@ current file, selection, diagnostics, and more.
 - **changes**: `Can you review my changes?`
 - **diagnostics**: `Can you help me fix the diagnostics in {file}?\n{diagnostics}`
 - **diagnostics_all**: `Can you help me fix these diagnostics?\n{diagnostics_all}`
+- **diagnostics_error**: `Can you help me fix the errors in {file}?\n{diagnostics_error}`
+- **diagnostics_error_all**: `Can you help me fix these errors?\n{diagnostics_error_all}`
 - **document**: `Add documentation to {position}`
 - **explain**: `Explain {this}`
 - **fix**: `Can you fix {this}?`
@@ -457,6 +461,8 @@ current file, selection, diagnostics, and more.
 - `{selection}`: The visual selection.
 - `{diagnostics}`: The diagnostics for the current buffer.
 - `{diagnostics_all}`: All diagnostics in the workspace.
+- `{diagnostics_error}`: Error-severity diagnostics for the current buffer.
+- `{diagnostics_error_all}`: Error-severity diagnostics in the workspace.
 - `{function}`: The function at cursor (Tree-sitter) - returns location like `function foo @file:10:5`.
 - `{class}`: The class/struct at cursor (Tree-sitter) - returns location.
 - `{this}`: A special context variable. If the current buffer is a file, it resolves to `{position}`. Otherwise, it resolves to the literal string "this" and appends the current `{selection}` to the prompt.
